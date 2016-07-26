@@ -1,0 +1,67 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <h1>
+                    Railway Reservation System
+                </h1>
+            </div>
+            <div class="links" style="float:right;color:White">
+            <asp:LinkButton ID="lnkChangePassword" runat="server" CausesValidation="False" 
+                    ForeColor="#FFCCCC" onclick="lnkChangePassword_Click">Change Password</asp:LinkButton>
+            &nbsp;&nbsp;
+            <asp:LinkButton ID="lnkLogOut" runat="server" CausesValidation="False" 
+                    ForeColor="#FFCCCC" onclick="lnkLogOut_Click">Logout</asp:LinkButton>
+            </div>
+            <div class="clear hideSkiplink">
+                
+                <asp:Menu ID="menuHeader" runat="server" DataSourceID="treeSiteMapDataSource" 
+                    ForeColor="White" Orientation="Horizontal" StaticDisplayLevels="3">
+                    <StaticMenuItemStyle HorizontalPadding="10px" />
+                </asp:Menu>
+                
+            </div>
+        </div>
+        <div class="centerContent">
+        <table>
+        <tr>
+        <td valign="top">
+        <div class="leftCol">
+            <asp:TreeView ID="treeViewMenu" runat="server" CssClass="top" 
+                DataSourceID="treeSiteMapDataSource">
+            </asp:TreeView>
+            <asp:SiteMapDataSource ID="treeSiteMapDataSource" runat="server" />
+            <br />
+        </div>
+        </td>
+        <td>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                <p>
+                    &nbsp;&nbsp;&nbsp; &nbsp;</p>
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="clear">
+        </div>
+        </td>
+        </tr>
+        </table>
+        </div>
+    </div>
+    <div class="footer">
+        
+    </div>
+    </form>
+</body>
+</html>
